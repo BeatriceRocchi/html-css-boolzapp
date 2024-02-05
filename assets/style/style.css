@@ -10,7 +10,7 @@
   --color-white: #ffffff;
   --color-black: #000000;
 
-  --text-color-dark: #3c3c3c;
+  --text-color-dark: #6b7376;
   --text-color-medium: #b1b1b1;
   --text-color-light: #c2c2c2;
 }
@@ -74,12 +74,6 @@ img {
 
 .text-xs {
   font-size: 0.5rem;
-}
-
-/* TODO: Da eliminare */
-.debug {
-  background-color: rgba(0, 255, 0, 0.5);
-  border: 1px solid gray;
 }
 
 /* Scrollbar */
@@ -174,7 +168,7 @@ img {
 .searchbar input {
   border: none;
   width: 80%;
-  margin-left: 15px;
+  padding-left: 15px;
   font-family: inherit;
 }
 
@@ -220,7 +214,7 @@ img {
 }
 
 .chat-selected,
-.textbox {
+.chat-input {
   height: 70px;
 }
 
@@ -288,6 +282,33 @@ img {
   color: var(--text-color-medium);
 }
 
+/* Chat input */
+.chat-input {
+  background-color: var(--color-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.chat-input i {
+  color: var(--text-color-dark);
+  font-size: 1.5rem;
+  padding: 0 20px;
+}
+
+.chat-input input {
+  border: none;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  font-family: inherit;
+  padding-left: 15px;
+}
+
+.chat-input input::placeholder {
+  color: var(--text-color-light);
+}
+
 /* ---- RESPONSIVE ---- */
 /* Tablet: from 542 to 992 */
 @media screen and (max-width: 992px) {
@@ -323,6 +344,10 @@ img {
   .right {
     width: calc(100% - 90px);
   }
+
+  .chat {
+    padding: 45px;
+  }
 }
 
 /* Phone: < 542 */
@@ -338,5 +363,17 @@ img {
 
   .chat-selected .menu-box {
     display: none;
+  }
+
+  .chat {
+    padding: 20px;
+  }
+
+  .chat-input i {
+    display: none;
+  }
+
+  .chat-input input {
+    margin: 0 20px;
   }
 }
