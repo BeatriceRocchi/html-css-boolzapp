@@ -2,7 +2,8 @@
 :root {
   --color-primary-light: #d5f9ba;
   --color-primary-dark: #009688;
-  --color-secondary-light: #eaeaea;
+  --color-secondary-light: #fafafa;
+  --color-secondary-medium: #eaeaea;
   --color-secondary-dark: #d6dbd8;
   --color-tertiary: #f3eeea;
   --color-quaternary: #8edafc;
@@ -63,6 +64,10 @@ img {
   display: flex;
 }
 
+.container-sm {
+  padding: 8px 15px;
+}
+
 .text-sm {
   font-size: 0.7rem;
 }
@@ -73,6 +78,22 @@ img {
   border: 1px solid gray;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary-light);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  border-left: 3.5px solid var(--color-secondary-light);
+  border-right: 3.5px solid var(--color-secondary-light);
+  background-color: var(--text-color-medium);
+}
+
 /* MAIN - Left part*/
 .left {
   width: 380px;
@@ -81,8 +102,7 @@ img {
 /* User */
 .user {
   height: 70px;
-  background-color: var(--color-secondary-light);
-  padding: 8px 15px;
+  background-color: var(--color-secondary-medium);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,7 +122,6 @@ img {
 /* Notification */
 .notification {
   height: 78px;
-  padding: 8px 15px;
   background-color: var(--color-quaternary);
   display: flex;
   align-items: center;
@@ -149,19 +168,43 @@ img {
   border: none;
   width: 80%;
   margin-left: 15px;
+  font-family: inherit;
 }
 
 .searchbar input::placeholder {
   color: var(--text-color-light);
 }
 
+/* Chat list */
 .chat-list {
   overflow-y: scroll;
   height: calc(100% - 70px - 78px - 50px);
+  background-color: var(--color-secondary-light);
 }
 
 .chat-list .chat-preview {
   height: 80px;
+  background-color: var(--color-white);
+  border-top: 0.8px solid var(--color-secondary-medium);
+  border-right: 0.8px solid var(--color-secondary-medium);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.chat-preview .chat-textbox {
+  padding-left: 15px;
+}
+
+.chat-preview .chat-msg {
+  color: var(--text-color-medium);
+}
+
+.chat-preview .chat-hour {
+  color: var(--text-color-medium);
+  position: absolute;
+  top: 8px;
+  right: 0px;
 }
 
 /* MAIN - Right part*/
@@ -204,6 +247,10 @@ img {
 
   .chat-list {
     height: calc(100% - 70px);
+  }
+
+  .chat-list .chat-textbox {
+    display: none;
   }
 
   /* Right part*/
