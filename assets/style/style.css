@@ -44,9 +44,30 @@ body {
   border: 1px solid gray;
 }
 
-/* MAIN - Chat-List*/
-.chat-list {
+/* MAIN - Left part*/
+.left {
   width: 380px;
+}
+
+.user {
+  height: 70px;
+}
+
+.notification {
+  height: 78px;
+}
+
+.searchbar {
+  height: 50px;
+}
+
+.chat-list {
+  overflow-y: scroll;
+  height: calc(100% - 70px - 78px - 50px);
+}
+
+.chat-list .chat {
+  height: 80px;
 }
 
 /* ---- RESPONSIVE ---- */
@@ -58,14 +79,24 @@ body {
     margin: 0 auto;
   }
 
-  .chat-list {
+  /* Left part*/
+  .left {
     width: 90px;
+  }
+
+  .notification,
+  .searchbar {
+    display: none;
+  }
+
+  .chat-list {
+    height: calc(100% - 70px);
   }
 }
 
 /* Phone: < 542 */
 @media screen and (max-width: 541px) {
-  .chat-list {
+  .left {
     display: none;
   }
 }
