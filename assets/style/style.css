@@ -72,6 +72,10 @@ img {
   font-size: 0.7rem;
 }
 
+.text-xs {
+  font-size: 0.5rem;
+}
+
 /* TODO: Da eliminare */
 .debug {
   background-color: rgba(0, 255, 0, 0.5);
@@ -103,17 +107,20 @@ img {
 .user {
   height: 70px;
   background-color: var(--color-secondary-medium);
+  border-right: 1px solid var(--color-secondary-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.user .menu {
+.user .menu,
+.chat-selected .menu {
   display: flex;
   justify-content: space-between;
 }
 
-.user .menu li {
+.user .menu li,
+.chat-selected .menu li {
   padding: 0 10px;
   font-size: 1.2rem;
   color: var(--text-color-medium);
@@ -196,7 +203,7 @@ img {
   padding-left: 15px;
 }
 
-.chat-preview .chat-msg {
+.chat-preview .chat-text {
   color: var(--text-color-medium);
 }
 
@@ -212,14 +219,73 @@ img {
   width: calc(100% - 380px);
 }
 
-.current-chat,
+.chat-selected,
 .textbox {
   height: 70px;
 }
 
+/* Chat selected */
+.chat-selected {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-secondary-medium);
+}
+
+.chat-selected .chat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-selected .chat-info .photo {
+  margin-right: 15px;
+}
+
+.chat-selected .last-access {
+  color: var(--text-color-dark);
+  font-weight: bold;
+}
+
+/* Chat */
 .chat {
   overflow-y: scroll;
   height: calc(100% - 140px);
+  padding: 50px 95px;
+  background-image: url(../img/mine.jpg);
+  display: flex;
+  flex-direction: column;
+}
+
+.chat .msg {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px 2px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 65%;
+  height: fit-content;
+}
+
+.chat .msg.sent {
+  background-color: var(--color-primary-light);
+  align-self: end;
+}
+
+.chat .msg.received {
+  background-color: var(--color-white);
+}
+
+.chat .msg .msg-hour {
+  margin-top: 25px;
+  color: var(--text-color-medium);
+  text-align: right;
+  position: relative;
+  left: 18px;
+}
+
+.chat .msg i {
+  color: var(--text-color-medium);
 }
 
 /* ---- RESPONSIVE ---- */
@@ -268,5 +334,9 @@ img {
   /* Right part*/
   .right {
     width: 100%;
+  }
+
+  .chat-selected .menu-box {
+    display: none;
   }
 }
