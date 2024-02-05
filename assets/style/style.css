@@ -6,9 +6,11 @@
   --color-secondary-dark: #d6dbd8;
   --color-tertiary: #f3eeea;
   --color-quaternary: #8edafc;
+  --color-white: #ffffff;
+  --color-black: #000000;
 
   --text-color-dark: #3c3c3c;
-  --text-color-medium: #6b7376;
+  --text-color-medium: #b1b1b1;
   --text-color-light: #c2c2c2;
 }
 
@@ -20,6 +22,9 @@
 
 body {
   font-family: "Lato", sans-serif;
+  color: var(--color-black);
+  font-size: 0.85rem;
+  line-height: 1.2rem;
   width: 100%;
   background: linear-gradient(
     to bottom,
@@ -30,12 +35,36 @@ body {
   );
 }
 
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.photo {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.photo img {
+  object-fit: cover;
+}
+
 /* Utilities */
 .container {
   width: 80vw;
   height: 95vh;
   margin: 2.5vh auto;
   display: flex;
+}
+
+.text-sm {
+  font-size: 0.7rem;
 }
 
 /* TODO: Da eliminare */
@@ -49,16 +78,81 @@ body {
   width: 380px;
 }
 
+/* User */
 .user {
   height: 70px;
+  background-color: var(--color-secondary-light);
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.user .menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user .menu li {
+  padding: 0 10px;
+  font-size: 1.2rem;
+  color: var(--text-color-medium);
+}
+
+/* Notification */
 .notification {
   height: 78px;
+  padding: 8px 15px;
+  background-color: var(--color-quaternary);
+  display: flex;
+  align-items: center;
 }
 
-.searchbar {
+.notification i {
   height: 50px;
+  width: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--color-white);
+  color: var(--color-quaternary);
+  font-size: 1.2rem;
+  margin-right: 15px;
+}
+
+.notification strong div:last-child {
+  text-decoration: underline;
+  color: var(--text-color-dark);
+}
+
+/* Searchbox */
+.searchbox {
+  height: 50px;
+  background-color: var(--color-secondary-light);
+  padding: 8px;
+}
+
+.searchbox .searchbar {
+  background-color: var(--color-white);
+  height: calc(50px - 16px);
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+}
+
+.searchbar i {
+  color: var(--text-color-medium);
+}
+
+.searchbar input {
+  border: none;
+  width: 80%;
+  margin-left: 15px;
+}
+
+.searchbar input::placeholder {
+  color: var(--text-color-light);
 }
 
 .chat-list {
@@ -72,7 +166,7 @@ body {
 
 /* MAIN - Right part*/
 .right {
-  width: 100%;
+  width: calc(100% - 380px);
 }
 
 .current-chat,
@@ -99,13 +193,22 @@ body {
     width: 90px;
   }
 
+  .user .menu-box {
+    display: none;
+  }
+
   .notification,
-  .searchbar {
+  .searchbox {
     display: none;
   }
 
   .chat-list {
     height: calc(100% - 70px);
+  }
+
+  /* Right part*/
+  .right {
+    width: calc(100% - 90px);
   }
 }
 
@@ -113,5 +216,10 @@ body {
 @media screen and (max-width: 541px) {
   .left {
     display: none;
+  }
+
+  /* Right part*/
+  .right {
+    width: 100%;
   }
 }
