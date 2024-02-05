@@ -83,6 +83,7 @@ img {
 
 ::-webkit-scrollbar-track {
   background: var(--color-secondary-light);
+  border-left: 0.8px solid var(--color-secondary-medium);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -141,7 +142,7 @@ img {
   margin-right: 15px;
 }
 
-.notification strong div:last-child {
+.notification .text-underline {
   text-decoration: underline;
   color: var(--text-color-dark);
 }
@@ -180,14 +181,13 @@ img {
 .chat-list {
   overflow-y: scroll;
   height: calc(100% - 70px - 78px - 50px);
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-white);
 }
 
 .chat-list .chat-preview {
   height: 80px;
   background-color: var(--color-white);
   border-top: 0.8px solid var(--color-secondary-medium);
-  border-right: 0.8px solid var(--color-secondary-medium);
   display: flex;
   align-items: center;
   position: relative;
