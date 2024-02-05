@@ -66,8 +66,23 @@ body {
   height: calc(100% - 70px - 78px - 50px);
 }
 
-.chat-list .chat {
+.chat-list .chat-preview {
   height: 80px;
+}
+
+/* MAIN - Right part*/
+.right {
+  width: 100%;
+}
+
+.current-chat,
+.textbox {
+  height: 70px;
+}
+
+.chat {
+  overflow-y: scroll;
+  height: calc(100% - 140px);
 }
 
 /* ---- RESPONSIVE ---- */
