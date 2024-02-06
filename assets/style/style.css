@@ -31,7 +31,7 @@
 body {
   font-family: "Lato", sans-serif;
   color: var(--color-black);
-  line-height: 1.3rem;
+  line-height: 1.5rem;
   width: 100%;
   background: linear-gradient(
     to bottom,
@@ -62,6 +62,10 @@ img {
   object-fit: cover;
 }
 
+i {
+  color: var(--text-color-medium);
+}
+
 /* Utilities */
 .container {
   width: 80vw;
@@ -79,7 +83,7 @@ img {
 }
 
 .text-xs {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 }
 
 /* Scrollbar */
@@ -124,7 +128,6 @@ img {
 .chat-selected .menu li {
   padding: 0 10px;
   font-size: 1.2rem;
-  color: var(--text-color-medium);
 }
 
 /* Notification */
@@ -159,6 +162,7 @@ img {
   background-color: var(--color-secondary-light);
   padding: 8px;
   display: flex;
+  align-items: center;
 }
 
 .searchbox .searchbar {
@@ -169,7 +173,6 @@ img {
 }
 
 .searchbar i {
-  color: var(--text-color-medium);
   margin-right: 10px;
 }
 
@@ -193,7 +196,6 @@ img {
 
 .chat-list .chat-preview {
   height: 80px;
-  background-color: var(--color-white);
   border-top: 0.8px solid var(--color-secondary-medium);
   display: flex;
   align-items: center;
@@ -265,10 +267,10 @@ img {
 .chat .msg {
   display: flex;
   justify-content: space-between;
-  padding: 10px 10px 2px;
+  padding: 15px;
   margin-bottom: 10px;
   border-radius: 10px;
-  width: 65%;
+  width: 60%;
   height: fit-content;
   position: relative;
 }
@@ -283,15 +285,11 @@ img {
 }
 
 .chat .msg .msg-hour {
-  margin-top: 10px;
   color: var(--text-color-medium);
-  text-align: right;
-  position: relative;
-  left: 18px;
-}
-
-.chat .msg i {
-  color: var(--text-color-medium);
+  line-height: normal;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
 }
 
 .chat .msg .msg-info {
@@ -415,9 +413,14 @@ body.darkmode {
   background: var(--color-dm-tertiary);
 }
 
+.darkmode i {
+  color: var(--text-color-light);
+}
+
 .darkmode .user,
 .darkmode .searchbar,
-.darkmode .chat-selected {
+.darkmode .chat-selected,
+.darkmode input {
   background: var(--color-dm-secondary);
 }
 
@@ -433,7 +436,10 @@ body.darkmode {
   color: var(--color-dm-quaternary);
 }
 
-.darkmode .notification .text-underline {
+.darkmode .notification .text-underline,
+.darkmode .chat-preview .chat-text,
+.darkmode .chat-preview .chat-hour,
+.darkmode .chat-selected .last-access {
   color: var(--text-color-light);
 }
 
@@ -443,10 +449,6 @@ body.darkmode {
 
 .darkmode .searchbar {
   border: none;
-}
-
-.darkmode .searchbar input {
-  background: var(--color-dm-secondary);
 }
 
 .darkmode .chat-list,
@@ -460,19 +462,6 @@ body.darkmode {
 
 .darkmode .chat-preview:last-child {
   border-color: var(--color-dm-quaternary);
-}
-
-.darkmode .chat-preview .chat-text,
-.darkmode .chat-preview .chat-hour {
-  color: var(--text-color-light);
-}
-
-.darkmode .chat-selected .last-access {
-  color: var(--text-color-light);
-}
-
-.darkmode .menu i {
-  color: var(--text-color-light);
 }
 
 .darkmode .chat {
@@ -489,20 +478,26 @@ body.darkmode {
 }
 
 .darkmode .chat-input {
-  background: var(--color-dm-tertiary);
+  background: var(--color-dm-secondary-dark);
 }
 
 .darkmode .chat-input input {
-  background: var(--color-dm-secondary);
   color: var(--text-color-light);
 }
 
-::-webkit-scrollbar-track {
+.darkmode .chat .msg i:hover + .msg-info {
+  background-color: var(--color-dm-secondary-dark);
+  color: var(--color-secondary-light);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Scrollbar */
+.darkmode ::-webkit-scrollbar-track {
   background: var(--color-dm-secondary-dark);
   border-left: 0.8px solid var(--color-dm-quaternary);
 }
 
-::-webkit-scrollbar-thumb {
+.darkmode ::-webkit-scrollbar-thumb {
   border-color: var(--color-dm-secondary-dark);
   background-color: var(--color-dm-quaternary);
 }
