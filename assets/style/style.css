@@ -7,12 +7,15 @@
   --color-secondary-dark: #d6dbd8;
   --color-tertiary: #f3eeea;
   --color-quaternary: #8edafc;
+
   --color-white: #ffffff;
   --color-black: #000000;
 
   --color-dm-primary: #005d4b;
   --color-dm-secondary: #202c33;
+  --color-dm-secondary-dark: #111b21;
   --color-dm-tertiary: #0c1317;
+  --color-dm-quaternary: #30404b;
 
   --text-color-dark: #6b7376;
   --text-color-medium: #b1b1b1;
@@ -412,10 +415,94 @@ body.darkmode {
   background: var(--color-dm-tertiary);
 }
 
-.darkmode .user {
+.darkmode .user,
+.darkmode .searchbar,
+.darkmode .chat-selected {
   background: var(--color-dm-secondary);
+}
+
+.darkmode .user {
+  border-color: var(--color-dm-quaternary);
+}
+
+.darkmode .notification {
+  background: var(--color-dm-quaternary);
+}
+
+.darkmode .notification i {
+  color: var(--color-dm-quaternary);
+}
+
+.darkmode .notification .text-underline {
+  color: var(--text-color-light);
+}
+
+.darkmode .searchbox {
+  background: var(--color-dm-secondary-dark);
+}
+
+.darkmode .searchbar {
+  border: none;
+}
+
+.darkmode .searchbar input {
+  background: var(--color-dm-secondary);
+}
+
+.darkmode .chat-list,
+.darkmode .chat-preview {
+  background: var(--color-dm-secondary-dark);
+}
+
+.darkmode .chat-preview {
+  border-color: var(--color-dm-quaternary);
+}
+
+.darkmode .chat-preview:last-child {
+  border-color: var(--color-dm-quaternary);
+}
+
+.darkmode .chat-preview .chat-text,
+.darkmode .chat-preview .chat-hour {
+  color: var(--text-color-light);
+}
+
+.darkmode .chat-selected .last-access {
+  color: var(--text-color-light);
 }
 
 .darkmode .menu i {
   color: var(--text-color-light);
+}
+
+.darkmode .chat {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../img/mine-dark.png);
+}
+
+.darkmode .chat .msg.sent {
+  background: var(--color-dm-primary);
+}
+
+.darkmode .chat .msg.received {
+  background: var(--color-dm-secondary);
+}
+
+.darkmode .chat-input {
+  background: var(--color-dm-tertiary);
+}
+
+.darkmode .chat-input input {
+  background: var(--color-dm-secondary);
+  color: var(--text-color-light);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dm-secondary-dark);
+  border-left: 0.8px solid var(--color-dm-quaternary);
+}
+
+::-webkit-scrollbar-thumb {
+  border-color: var(--color-dm-secondary-dark);
+  background-color: var(--color-dm-quaternary);
 }
