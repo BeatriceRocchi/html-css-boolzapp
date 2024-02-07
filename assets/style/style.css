@@ -296,11 +296,12 @@ i {
   display: none;
 }
 
-.chat .msg i:hover + .msg-info {
+.chat .msg-option:hover .msg-info {
   display: block;
   position: absolute;
   right: 10px;
-  top: 30px;
+  top: 40px;
+  z-index: 999;
   width: 140px;
   height: 60px;
   background-color: var(--color-white);
@@ -364,6 +365,11 @@ i {
     height: calc(100% - 70px);
   }
 
+  .chat-list .chat-preview {
+    padding: 0;
+    justify-content: center;
+  }
+
   .chat-list .chat-textbox {
     display: none;
   }
@@ -408,7 +414,6 @@ i {
 
 /* ---- DARKMODE ---- */
 body.darkmode {
-  font-family: "Lato", sans-serif;
   color: var(--color-white);
   background: var(--color-dm-tertiary);
 }
