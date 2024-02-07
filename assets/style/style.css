@@ -275,6 +275,40 @@ i {
   position: relative;
 }
 
+.chat .msg .msg-arrow {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.chat .msg.sent .msg-arrow {
+  right: -6px;
+  bottom: 35px;
+}
+
+.chat .msg.received .msg-arrow {
+  left: -20px;
+  bottom: 37px;
+}
+
+.chat .msg .msg-arrow::after {
+  content: "";
+  position: absolute;
+  border-radius: 0 25px 0;
+  width: 15px;
+  height: 35px;
+}
+
+.chat .msg.sent .msg-arrow::after {
+  border-top: 10px solid var(--color-primary-light);
+  transform: rotate(45deg) scaleY(-1);
+}
+
+.chat .msg.received .msg-arrow::after {
+  border-top: 10px solid var(--color-white);
+  transform: rotate(145deg);
+}
+
 .chat .msg.sent {
   background-color: var(--color-primary-light);
   align-self: end;
@@ -422,6 +456,10 @@ body.darkmode {
   color: var(--text-color-light);
 }
 
+.darkmode .notification i {
+  color: var(--color-dm-quaternary);
+}
+
 .darkmode .user,
 .darkmode .searchbar,
 .darkmode .chat-selected,
@@ -429,49 +467,11 @@ body.darkmode {
   background: var(--color-dm-secondary);
 }
 
-.darkmode .user {
-  border-color: var(--color-dm-quaternary);
-}
-
-.darkmode .notification {
-  background: var(--color-dm-quaternary);
-}
-
-.darkmode .notification i {
-  color: var(--color-dm-quaternary);
-}
-
-.darkmode .notification .text-underline,
-.darkmode .chat-preview .chat-text,
-.darkmode .chat-preview .chat-hour,
-.darkmode .chat-selected .last-access {
-  color: var(--text-color-light);
-}
-
-.darkmode .searchbox {
-  background: var(--color-dm-secondary-dark);
-}
-
-.darkmode .searchbar {
-  border: none;
-}
-
+.darkmode .searchbox,
 .darkmode .chat-list,
-.darkmode .chat-preview {
+.darkmode .chat-preview,
+.darkmode .chat-input {
   background: var(--color-dm-secondary-dark);
-}
-
-.darkmode .chat-preview {
-  border-color: var(--color-dm-quaternary);
-}
-
-.darkmode .chat-preview:last-child {
-  border-color: var(--color-dm-quaternary);
-}
-
-.darkmode .chat {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    url(../img/mine-dark.png);
 }
 
 .darkmode .chat .msg.sent {
@@ -482,15 +482,42 @@ body.darkmode {
   background: var(--color-dm-secondary);
 }
 
-.darkmode .chat-input {
-  background: var(--color-dm-secondary-dark);
+.darkmode .notification {
+  background: var(--color-dm-quaternary);
 }
 
-.darkmode .chat-input input {
+.darkmode .chat {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../img/mine-dark.png);
+}
+
+.darkmode .notification .text-underline,
+.darkmode .chat-preview .chat-text,
+.darkmode .chat-preview .chat-hour,
+.darkmode .chat-selected .last-access,
+.darkmode input {
   color: var(--text-color-light);
 }
 
-.darkmode .chat .msg i:hover + .msg-info {
+.darkmode .searchbar {
+  border: none;
+}
+
+.darkmode .user,
+.darkmode .chat-preview,
+.darkmode .chat-preview:last-child {
+  border-color: var(--color-dm-quaternary);
+}
+
+.darkmode .chat .msg.sent .msg-arrow::after {
+  border-top: 10px solid var(--color-dm-primary);
+}
+
+.darkmode .chat .msg.received .msg-arrow::after {
+  border-top: 10px solid var(--color-dm-secondary);
+}
+
+.darkmode .chat .msg-option:hover .msg-info {
   background-color: var(--color-dm-secondary-dark);
   color: var(--color-secondary-light);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
